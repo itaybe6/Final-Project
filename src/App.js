@@ -1,6 +1,7 @@
 
 import background from './img/background.jpg'
 import TopicsPage from './components/TopicsPage';
+import Navbar from './Navbar/Navbar';
 
 function App() {
   const backgroundStyle = {
@@ -13,6 +14,7 @@ function App() {
 
   return (
     <div className="App" style={backgroundStyle}>
+      <Navbar/>
       <TopicsPage />
     </div>
   );

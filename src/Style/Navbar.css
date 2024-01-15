@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white; /* רקע לבן */
+    color: black; /* כתוב בצבע שחור */
+  }
+  
+  .appBar {
+    background-color: black; /* צבע הרקע של הסרגל */
+  }
+  
+  .toolbar {
+    direction: rtl; /* כיוון של הכתב מימין לשמאל */
+    text-align: right; /* כיוונו של התפריט מימין לשמאל */
+  }
+  
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .navbar a:hover {
+    background-color: #333;
+  }
+  
+  .dropdown {
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }

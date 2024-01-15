@@ -1,0 +1,48 @@
+.appBar {
+  background-color: black; /* צבע הרקע של הסרגל */
+  height: 80px; /* גובה הסרגל */
+}
+
+.toolbar {
+  direction: rtl; /* כיוון של הכתב מימין לשמאל */
+  text-align: right; /* כיוונו של התפריט מימין לשמאל */
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row; /* הצגת התת-קטגוריות בשורה */
+  align-items: center; /* יישור אופקי של האיברים במרכז הסרגל */
+}
+
+.navbar a {
+  color: black; /* צבע הכתב שחור */
+  text-decoration: none;
+  padding: 10px 20px;
+  margin-right: 10px; /* מרווח בין הקטגוריות */
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  font-size: 18px; /* כתב גדול יותר */
+}
+
+.navbar a:hover {
+  background-color: #333;
+}
+
+.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
