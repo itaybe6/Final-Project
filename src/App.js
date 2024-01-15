@@ -1,7 +1,8 @@
 
 import background from './img/background.jpg'
-import TopicsPage from './components/TopicsPage';
+import RowTopics from './components/RowTopics';
 import Navbar from './Navbar/Navbar';
+import BasicConcept from './pagesComponents/BasicConcept';
 
 function App() {
   const backgroundStyle = {
@@ -14,8 +15,10 @@ function App() {
 
   return (
     <div className="App" style={backgroundStyle}>
-      <Navbar/>
-      <TopicsPage />
+
+      {/* <Navbar/> */}
+      <BasicConcept />
+      
     </div>
   );
 }
