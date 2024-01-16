@@ -4,7 +4,7 @@ import  askbid from '../img/askbid.jpg'
 import premarket from '../img/premarket.jpg'
 import stock from '../img/stock.jpg'
 import RowTopics from '../components/RowTopics';
-
+import Carousel from '../components/Carousel'
 
 
 const BasicConcept = () => {
@@ -18,7 +18,7 @@ const BasicConcept = () => {
             imageUrl: askbid,
         },
         {
-            description: 'זה מתרחש לפני פתיחת השוק הרגיל, בדרך כלל החל משעה 4:00 בבוקר ( 11:00 בבוקר שעון ישראל )  ונמשך עד פתיחת השוק בשעה 9:30 (16:30 שעון ישראל )  בבוקר שעון המזרח. המסחר המוקדם מאפשר למשקיעים להגיב לחדשות ואירועים, כמו דוחות רווחים או נתונים כלכליים, המתרחשים מחוץ לשעות המסחר הרגילות.',
+            description: 'מתרחש לפני פתיחת השוק הרגיל, בדרך כלל החל משעה 4:00 בבוקר ( 11:00 בבוקר שעון ישראל )  ונמשך עד פתיחת השוק בשעה 9:30 (16:30 שעון ישראל )  בבוקר שעון המזרח. המסחר המוקדם מאפשר למשקיעים להגיב לחדשות ואירועים, כמו דוחות רווחים או נתונים כלכליים, המתרחשים מחוץ לשעות המסחר הרגילות.',
             imageUrl: premarket,
         },
         {
@@ -30,7 +30,10 @@ const BasicConcept = () => {
 
     return (
         <div>
+            {/* <Carousel /> */}
             <RowTopics subTopics ={subTopics}/>
+
+            
         </div>
     );
 };
