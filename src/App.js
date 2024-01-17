@@ -3,10 +3,15 @@ import background from './img/background.jpg'
 import RowTopics from './components/RowTopics';
 import Navbar from './Navbar/Navbar';
 import BasicConcept from './pagesComponents/BasicConcept';
+import TextBox from './components/TextBox';
+
+
+
+
 
 function App() {
   const backgroundStyle = {
-    backgroundImage: `url(${background})`,
+    //backgroundImage: `url(${background})`,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     minHeight: '110vh',  // Ensures that the div is at least as tall as the viewport
@@ -18,7 +23,8 @@ function App() {
 
       <Navbar/>
       <BasicConcept />
-      
+      <TextBox></TextBox>
+     
     </div>
   );
 }

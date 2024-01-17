@@ -5,9 +5,10 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 const styles = {
   accordion: {
     borderRadius: '20px',
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    backgroundColor: 'white',
     transition: 'transform 0.3s ease', // Smooth transition for the transform
     direction: 'rtl', // Sets text direction to right-to-left
+    border: '1px solid black'  
   },
   accordionHover: {
     transform: 'scale(1.05)', // Slightly enlarges the accordion on hover
@@ -21,7 +22,7 @@ const styles = {
   },
   content: {
     fontWeight: 'bold',
-    color: 'white',
+    color: 'black',
   },
 };
 

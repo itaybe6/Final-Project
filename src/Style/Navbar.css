@@ -1,45 +1,48 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: white; /* רקע לבן */
-    color: black; /* כתוב בצבע שחור */
-  }
-  
-  .appBar {
-    background-color: black; /* צבע הרקע של הסרגל */
-  }
-  
-  .toolbar {
-    direction: rtl; /* כיוון של הכתב מימין לשמאל */
-    text-align: right; /* כיוונו של התפריט מימין לשמאל */
-  }
-  
-  .navbar a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-  }
-  
-  .navbar a:hover {
-    background-color: #333;
-  }
-  
-  .dropdown {
-    display: inline-block;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #333;
-    min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
+/* עיצוב כללי ל-AppBar ול-Toolbar */
+.AppBar {
+  background-color: black; /* צבע רקע לסרגל העליון */
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between; /* מרווח בין הלוגו לניווט */
+  direction: rtl; /* כיווניות מימין לשמאל */
+}
+
+/* עיצוב לכותרת האתר (לוגו) */
+.toolbar Typography {
+  color: black; /* צבע טקסט ללוגו */
+}
+
+/* עיצוב לקישורים בסרגל הניווט */
+.navbar a {
+  color: black; /* צבע טקסט */
+  font-size: 1.2rem;
+  text-decoration: none; /* הסרת קו תחתון */
+  padding: 10px 15px; /* ריווח סביב הטקסט */
+  text-align: center; /* יישור הטקסט למרכז */
+}
+
+/* אם רוצים שהקישורים יתפלגו באופן שווה */
+.navbar {
+  display: flex;
+  justify-content: space-around; /* פיזור שווה של הקישורים */
+  width: 100%; /* שימוש בכל הרוחב */
+}
+
+/* עיצוב ספציפי לקישור של 'דף הבית' */
+.navbar a:first-child {
+  background-color: 'white'; /* צבע רקע ל'דף הבית' */
+}
+
+/* הדגשת קישור כאשר העכבר מעליו */
+.navbar a:hover {
+  border: 1px solid white; /* מסגרת לבנה סביב הקישור */
+}
+.button {
+  transition: transform 0.3s ease; /* מוסיף אנימציה חלקה לשינוי */
+}
+
+.button:hover {
+  transform: scale(1.1); /* מגדיל את הכפתור ב-10% */
+}
