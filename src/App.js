@@ -1,31 +1,38 @@
-
 import background from './img/background.jpg'
-import RowTopics from './components/RowTopics';
-import Navbar from './Navbar/Navbar';
+import Navbar from './components/Navbar';
 import BasicConcept from './pagesComponents/BasicConcept';
-import TextBox from './components/TextBox';
-
-
-
-
-
+import StockExchange from './pagesComponents/StockExchange';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Buttons from './MatirealUi/Buttons';
 function App() {
   const backgroundStyle = {
-    //backgroundImage: `url(${background})`,
+    // backgroundImage: `url(${background})`,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    minHeight: '110vh',  // Ensures that the div is at least as tall as the viewport
-    minWidth: '100%',   // E
+    minHeight: '110vh', // Ensures that the div is at least as tall as the viewport
+    minWidth: '100%',   // Ensures it spans the full width
   };
 
   return (
-    <div className="App" style={backgroundStyle}>
+    <Router>
+      <div style={backgroundStyle}>
+        <Navbar />
 
-      <Navbar/>
-      <BasicConcept />
-      <TextBox></TextBox>
-     
-    </div>
+        <Routes>
+            
+          <Route path="/BasicConcept" element={<BasicConcept />} />
+
+          <Route path="/StockExchange" element={<StockExchange />} />
+
+        </Routes>
+
+
+
+
+      </div>
+
+
+    </Router>
   );
 }
 

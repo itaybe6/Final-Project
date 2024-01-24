@@ -23,8 +23,8 @@ Stock4Life          </Typography>
           <div className="spacer" />
           <Stack direction="row" spacing={2} className="navbar">
             <a href="#">דף בית</a>
-            <a href="#">מושגים </a>
-            <a href="#">הבורסה </a>
+            <a href="BasicConcept">מושגים </a>
+            <a href="StockExchange">הבורסה </a>
             <a href="#">מדדים </a>
             <a href="#">מסחר יומי </a>
             <a href="#">מסחר לונג</a>

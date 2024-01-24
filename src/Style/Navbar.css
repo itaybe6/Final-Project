@@ -21,6 +21,7 @@
   text-decoration: none; /* הסרת קו תחתון */
   padding: 10px 15px; /* ריווח סביב הטקסט */
   text-align: center; /* יישור הטקסט למרכז */
+  font-weight: bold;
 }
 
 /* אם רוצים שהקישורים יתפלגו באופן שווה */
