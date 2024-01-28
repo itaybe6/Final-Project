@@ -9,6 +9,7 @@ import gap from '../img/gap.png'
 import volume from '../img/volume.png'
 import TextBox from '../components/TextBox';
 import ImageTextDisplay from '../components/ImageTextDisplay ';
+import candels from '../img/candels.jpg';
 
 
 
@@ -58,16 +59,14 @@ const BasicConcept = () => {
         
     ];
 
-    const canels_text = "נרות יפניים אחד הכלים הפופולרים לניתוח טכני . הם מספקים ייצוג חזותי של תנועות המחירים בתוך מסגרת זמן מסוימת.כל פמוט מציג ארבע פיסות מידע מרכזיות. הגוף הראשי (החלק הרחב יותר) של הפמוט מציג את מחירי הפתיחה והסגירה. אם מחיר הסגירה גבוה ממחיר הפתיחה, הפמוט נצבע לרוב בירוק, מה שמעיד על עלייה. אם מחיר הסגירה נמוך יותר, הפמוט בצבע אדום, מה שמצביע על ירידה.הקווים הנמשכים מהחלק העליון והתחתון של הגוף, מייצגים את המחירים הגבוהים והנמוכים במהלך התקופה."
-    const url = 'https://www.youtube.com/watch?v=ruwoQA-jgaQ&t=694s'
-    const title = "נרות יפניים"
+    const imgTextDisplay = { url : 'https://www.youtube.com/watch?v=ruwoQA-jgaQ&t=694s' , title :  "נרות יפניים" , content_text : "נרות יפניים אחד הכלים הפופולרים לניתוח טכני . הם מספקים ייצוג חזותי של תנועות המחירים בתוך מסגרת זמן מסוימת.כל פמוט מציג ארבע פיסות מידע מרכזיות. הגוף הראשי (החלק הרחב יותר) של הפמוט מציג את מחירי הפתיחה והסגירה. אם מחיר הסגירה גבוה ממחיר הפתיחה, הפמוט נצבע לרוב בירוק, מה שמעיד על עלייה. אם מחיר הסגירה נמוך יותר, הפמוט בצבע אדום, מה שמצביע על ירידה.הקווים הנמשכים מהחלק העליון והתחתון של הגוף, מייצגים את המחירים הגבוהים והנמוכים במהלך התקופה."}
 
     return (
         <div>
             {/* <Carousel /> */}
             <RowTopics subTopics ={subTopics1}/>
 
-            <ImageTextDisplay textContent = {canels_text} url = {url} title = {title}/>
+            <ImageTextDisplay obj = {imgTextDisplay} img = {candels} />
             <RowTopics subTopics ={subTopics2}/>
 
             

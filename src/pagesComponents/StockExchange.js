@@ -3,7 +3,8 @@ import israel from '../img/israel.jpg'
 import tokyo from '../img/tokyo.jpg'
 import nasdaq from '../img/nasdaq.jpg'
 import newyork from '../img/newyork.jpg'
-
+import bafet from '../img/bafet.png'
+import ImageTextDisplay from '../components/ImageTextDisplay ';
 
 
 import RowTopics from '../components/RowTopics';
@@ -31,7 +32,8 @@ const StockExchange = () => {
     ];
 
    
-
+  
+    const imgTextDisplay = { url : 'https://www.youtube.com/watch?v=ruwoQA-jgaQ&t=694s' , title : "וורן באפט" , content_text :'וורן באפט, מוכר גם כ"אורקל מאומהה", הוא אחד מהמשקיעים המצליחים והמוערכים בעולם. ידוע בגישת השקעה ערכית וארוכת טווח, באפט הפך למיליארדר בהודות לאסטרטגיות שקעה זהירה ומחקר יסודי. הוא מנהל את חברת Berkshire Hathaway, שבבעלותה מגוון עסקים ומניות בחברות מובילות. באפט גם ידוע בפילנתרופיה נרחבת, כאשר התחייב לתרום רוב הונו לצדקה.'}
 
 
 
@@ -39,7 +41,7 @@ const StockExchange = () => {
         <div>
             {/* <Carousel /> */}
             <RowTopics subTopics ={subTopics1}/>
-
+             <ImageTextDisplay obj = {imgTextDisplay} img = {bafet}/>
             
         </div>
     );

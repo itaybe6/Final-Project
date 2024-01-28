@@ -36,14 +36,30 @@
   background-color: 'white'; /* צבע רקע ל'דף הבית' */
 }
 
-/* הדגשת קישור כאשר העכבר מעליו */
-.navbar a:hover {
-  border: 1px solid white; /* מסגרת לבנה סביב הקישור */
-}
-.button {
-  transition: transform 0.3s ease; /* מוסיף אנימציה חלקה לשינוי */
+/* הדגשת קישור כאשר העכבר מעליו */.navbarButton {
+  color: #000000;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.button:hover {
-  transform: scale(1.1); /* מגדיל את הכפתור ב-10% */
+.a:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.navbarLink {
+  color: #000000;
+  text-decoration: none;
+  padding: 10px;
+  transition: color 0.3s, background-color 0.3s;
+  color: black; /* צבע טקסט */
+  font-size: 1.2rem;
+  text-decoration: none; /* הסרת קו תחתון */
+  padding: 10px 15px; /* ריווח סביב הטקסט */
+  text-align: center; /* יישור הטקסט למרכז */
+  font-weight: bold;
+}
+
+.navbarLink:hover {
+  color: #ffffff;
+  background-color: #000000;
 }

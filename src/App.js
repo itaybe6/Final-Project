@@ -1,5 +1,6 @@
 import background from './img/background.jpg'
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import BasicConcept from './pagesComponents/BasicConcept';
 import StockExchange from './pagesComponents/StockExchange';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -18,17 +19,19 @@ function App() {
       <div style={backgroundStyle}>
         <Navbar />
 
-        <Routes>
-            
-          <Route path="/BasicConcept" element={<BasicConcept />} />
-
-          <Route path="/StockExchange" element={<StockExchange />} />
-
-        </Routes>
 
 
 
+          <Routes>
 
+            <Route path="/BasicConcept" element={<BasicConcept />} />
+
+            <Route path="/StockExchange" element={<StockExchange />} />
+
+          </Routes>
+
+
+        <Footer />
       </div>
 
 

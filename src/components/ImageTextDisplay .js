@@ -1,9 +1,8 @@
 import React from 'react';
 import { Box, Grid, Typography, Paper, Button } from '@mui/material';
-import candels from '../img/candels.jpg';
 import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
 
-const ImageTextDisplay = ({ textContent, url ,title}) => {
+const ImageTextDisplay = ({obj , img}) => {
   const styles = {
     text: {
       direction: 'rtl',
@@ -25,7 +24,7 @@ const ImageTextDisplay = ({ textContent, url ,title}) => {
   };
 
   const handleClick = () => {
-    window.open(url, '_blank');
+    window.open(obj.url, '_blank');
   };
 
   return (
@@ -49,15 +48,15 @@ const ImageTextDisplay = ({ textContent, url ,title}) => {
               borderRadius: '4px',
             }}
             alt="Descriptive Alt Text"
-            src={candels}
+            src={img}
           />
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography variant="h2" style={{ ...styles.text, ...styles.header }}>
-            {title}
+            {obj.title}
           </Typography>
           <Typography variant="h6" style={styles.text}>
-            {textContent}
+            {obj.content_text}
           </Typography>
 
           <div style={styles.buttonContainer}>
