@@ -20,27 +20,25 @@ function Navbar() {
         </Toolbar>
       </AppBar>
 
-      <AppBar position="static" style={{ backgroundColor: 'rgb(143, 206, 185)', border: '2px solid black' }}>
+      <AppBar position="static" style={{ backgroundColor: 'black', color : 'white'}}>
         <Toolbar style={{ justifyContent: 'space-between' }}>
 
-          {/* כפתורים להרשמה והתחברות */}
-          <Stack direction="row" spacing={2}>
-            <Button startIcon={<AccountCircleIcon />} className="navbarLink">הרשמה</Button>
-            <Button startIcon={<LockOpenIcon />} className="navbarLink">התחברות</Button>
+          <Stack direction="row" spacing={2} >
+            <a  className="navbarLink" >הרשמה</a>
+            <a className="navbarLink">התחברות</a>
           </Stack>
 
           {/* כפתורים קיימים */}
           <Stack direction="row" spacing={2} className="navbar">
-            <a href="#" className="navbarLink">דף בית</a>
-            <a href="BasicConcept" className="navbarLink">מושגים</a>
-            <a href="StockExchange" className="navbarLink">הבורסה</a>
-            <a href="#" className="navbarLink">מדדים</a>
             <a href="#" className="navbarLink">מסחר יומי</a>
             <a href="#" className="navbarLink">מסחר לונג</a>
             <a href="#" className="navbarLink">כלים</a>
             <a href="#" className="navbarLink">פסיכולוגיה</a>
             <a href="#" className="navbarLink">אלגוריתם</a>
             <a href="#" className="navbarLink">קהילה</a>
+            <a href="BasicConcept" className="navbarLink">לומדת שוק ההון</a>
+            <a href="/" className="navbarLink">דף בית</a>
+
           </Stack>
         </Toolbar>
       </AppBar>

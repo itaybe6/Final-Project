@@ -1,0 +1,42 @@
+/* Advantages.css */
+.advantage-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fff; /* White background to contrast the colored items */
+}
+
+.advantage-box {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-grow: 1;
+  padding: 20px;
+  margin: 30px;
+  border: 2px solid #7e43f6; /* Blue border */
+  border-radius: 25px;
+  transition: transform 0.3s ease-in-out;
+  background-color: #fff; /* Initial background color */
+}
+
+.advantage-box:hover {
+  transform: scale(1.05); /* Gently enlarges the box */
+  cursor: pointer;
+}
+
+.advantage-box .advantage-icon, .advantage-box .MuiSvgIcon-root {
+  color: #000000; /* Blue icon color */
+  margin-right: 10px;
+  font-size: 34px; /* Adjust the size as needed */
+}
+
+
+.advantage-text {
+  font-size: 30px;
+  color: rgb(0, 0, 0); /* Black text color */
+  font-weight: bold; /* Bold text */
+
+}
+
