@@ -14,21 +14,27 @@
   justify-content: start;
   flex-grow: 1;
   padding: 20px;
-  margin: 30px;
-  border: 2px solid #7e43f6; /* Blue border */
+  margin: 60px;
+  border: 5px solid #000000; /* Blue border */
   border-radius: 25px;
   transition: transform 0.3s ease-in-out;
   background-color: #fff; /* Initial background color */
 }
 
 .advantage-box:hover {
-  transform: scale(1.05); /* Gently enlarges the box */
+  transform: scale(1.1); /* Gently enlarges the box */
+  background-color: #8c62df;
   cursor: pointer;
+
+}
+
+.advantage-box:hover .advantage-text {
+  color: #fff; /* White text color on hover */
 }
 
 .advantage-box .advantage-icon, .advantage-box .MuiSvgIcon-root {
   color: #000000; /* Blue icon color */
-  margin-right: 10px;
+  margin-right: 20px;
   font-size: 34px; /* Adjust the size as needed */
 }
 
@@ -39,4 +45,6 @@
   font-weight: bold; /* Bold text */
 
 }
+
+
 

@@ -1,22 +1,12 @@
 import React from 'react';
-import { Box, Typography, IconButton } from '@mui/material';
-import SyncIcon from '@mui/icons-material/Sync'; // Example icon, replace with your own
-import StarIcon from '@mui/icons-material/Star'; // Example icon, replace with your own
-import PublicIcon from '@mui/icons-material/Public'; // Example icon, replace with your own
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney'; // Example icon, replace with your own
+import { Box } from '@mui/material';
+import DragHandleIcon from '@mui/icons-material/DragHandle';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import LocationOn from '@mui/icons-material/LocationOn'; // Example icon, replace with your own
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+
 import '../Style/Advantage.css'
-
-
-const Advantage = ({ icon, text }) => (
-  <Box className="advantage-box">
-  <IconButton className="advantage-icon">
-    {icon}
-  </IconButton>
-  <Typography variant="subtitle1" className="advantage-text">
-    {text}
-  </Typography>
-</Box>
-);
+import Advantage from './Advantage';
 
 const Advantages = () => {
   return (
@@ -29,10 +19,12 @@ const Advantages = () => {
         boxSizing: 'border-box',
       }}
     >
-      <Advantage icon={<SyncIcon />} text="Transparent Process" />
-      <Advantage icon={<StarIcon />} text="Quality Services" />
-      <Advantage icon={<PublicIcon />} text="Online Consulting" />
-      <Advantage icon={<AttachMoneyIcon />} text="Cost Effective" />
+      <Advantage icon={<LocationOn />} text="אפשרות לעבוד מכל מקום" />
+      <Advantage icon={<MonetizationOnIcon />} text="הון התחלתי נמוך" />
+      <Advantage icon={<AccessTimeIcon />} text="גמישות בשעות העבודה" />
+      <Advantage icon={<DragHandleIcon />} text="שוויון הזדמניות" />
+    
+
     </Box>
   );
 };

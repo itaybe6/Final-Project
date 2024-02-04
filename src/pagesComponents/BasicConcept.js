@@ -86,11 +86,11 @@ const BasicConcept = () => {
     return (
         <div>
             {/* <Carousel /> */}
-<Advantages />
-            <RowTopics subTopics ={subTopics1}/>
 
+            <RowTopics subTopics ={subTopics1}/>
             <ImageTextDisplay obj = {imgTextDisplay} img = {candels} />
             <RowTopics subTopics ={subTopics2}/>
+            <Advantages />
             <RowTopics subTopics ={subTopics3}/>
 
             
