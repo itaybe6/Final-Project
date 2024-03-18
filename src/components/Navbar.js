@@ -24,8 +24,8 @@ function Navbar() {
         <Toolbar style={{ justifyContent: 'space-between' }}>
 
           <Stack direction="row" spacing={2} >
-            <a  className="navbarLink" >הרשמה</a>
-            <a className="navbarLink">התחברות</a>
+            <a href="signup"  className="navbarLink" >הרשמה</a>
+            <a href="login" className="navbarLink">התחברות</a>
           </Stack>
 
           {/* כפתורים קיימים */}
@@ -33,7 +33,7 @@ function Navbar() {
             <a href="#" className="navbarLink">מסחר יומי</a>
             <a href="#" className="navbarLink">מסחר לונג</a>
             <a href="#" className="navbarLink">כלים</a>
-            <a href="#" className="navbarLink">פסיכולוגיה</a>
+            <a href="Psychology" className="navbarLink">פסיכולוגיה</a>
             <a href="#" className="navbarLink">אלגוריתם</a>
             <a href="#" className="navbarLink">קהילה</a>
             <a href="BasicConcept" className="navbarLink">לומדת שוק ההון</a>

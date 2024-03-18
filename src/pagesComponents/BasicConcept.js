@@ -14,9 +14,9 @@ import tokyo from '../img/tokyo.jpg'
 import nasdaq from '../img/nasdaq.jpg'
 import newyork from '../img/newyork.jpg'
 import Advantages from '../components/Advantages';
-
 import RowTopics from '../components/RowTopics';
-import Carousel from '../components/Carousel'
+import Introduction from '../components/Introduction';
+import '../Style/Psychology.css'
 
 
 const BasicConcept = () => {
@@ -83,10 +83,13 @@ const BasicConcept = () => {
 
     const imgTextDisplay = { url : 'https://www.youtube.com/watch?v=ruwoQA-jgaQ&t=694s' , title :  "נרות יפניים" , content_text : "נרות יפניים אחד הכלים הפופולרים לניתוח טכני . הם מספקים ייצוג חזותי של תנועות המחירים בתוך מסגרת זמן מסוימת.כל פמוט מציג ארבע פיסות מידע מרכזיות. הגוף הראשי (החלק הרחב יותר) של הפמוט מציג את מחירי הפתיחה והסגירה. אם מחיר הסגירה גבוה ממחיר הפתיחה, הפמוט נצבע לרוב בירוק, מה שמעיד על עלייה. אם מחיר הסגירה נמוך יותר, הפמוט בצבע אדום, מה שמצביע על ירידה.הקווים הנמשכים מהחלק העליון והתחתון של הגוף, מייצגים את המחירים הגבוהים והנמוכים במהלך התקופה."}
 
+    const title = 'לומדת שוק ההון'
+    const text = 'ברוכים הבאים לעולם הקסום של מושגי שוק ההון! עמוד זה מהווה את נקודת הפתיחה שלכם במסע להבנת היסודות שעומדים בבסיס שוק המניות. פה נעבור יחד על המושגים הבסיסיים, מהם מניות ואיך הן עובדות, דרך הבנת אינדקסים כלכליים, ועד לפענוח מונחים כמו נפח המסחר,גאפ ועוד. אנחנו כאן כדי לוודא שתתחילו את מסעכם בעולם ההשקעות עם הבסיס החזק ביותר. אז קבלו את עצמכם בזרועות פתוחות לחדר הלימודים שלנו, והיכונו להרפתקה מרתקת בעולם הפיננסי!'
     return (
         <div>
             {/* <Carousel /> */}
-
+            
+            <Introduction title = {title} text = {text}/> 
             <RowTopics subTopics ={subTopics1}/>
             <ImageTextDisplay obj = {imgTextDisplay} img = {candels} />
             <RowTopics subTopics ={subTopics2}/>
