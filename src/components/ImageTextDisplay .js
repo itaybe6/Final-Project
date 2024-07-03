@@ -23,8 +23,10 @@ const ImageTextDisplay = ({ obj, img }) => {
       justifyContent: 'flex-end',
     },
     paper : {
-      adding: '20px',
+      padding: '40px',
       margin: '20px',
+      backgroundColor: 'rgba(255, 255, 255, 0.905)', 
+      borderRadius : '50px'
       
     },
     paperHover: {
@@ -69,6 +71,9 @@ const ImageTextDisplay = ({ obj, img }) => {
   };
 
   return (
+    <div className='all'>
+
+   
     <Paper
       ref={ref}
       elevation={3}
@@ -114,6 +119,7 @@ const ImageTextDisplay = ({ obj, img }) => {
         </Grid>
       </Grid>
     </Paper>
+    </div>
   );
 };
 

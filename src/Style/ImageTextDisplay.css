@@ -17,3 +17,8 @@
   animation: fadeInUp 2s ease-out;
   animation-fill-mode: forwards; /* Retain the final state */
 }
+
+.all{
+  padding: 50px;
+  background-color: rgba(255, 255, 255, 0.905);
+}

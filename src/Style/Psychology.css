@@ -1,5 +1,5 @@
 .market-psychology-fun {
-  background-color: #00000097;
+  background-color: #ffffffd2;
   border-radius: 15px;
   padding: 20px;
   margin: 20px auto;
@@ -54,4 +54,19 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.img-wrapper {
+  width: 100%; /* או רוחב קבוע, תלוי בעיצוב האתר */
+  height: auto; /* זה ישמור על יחסי הממדים */
+  display: block;
+  position: relative;
+  overflow: hidden; /* מונע גלילה אם התמונה גדולה מידי */
+}
+
+.img-wrapper img {
+  width: 100%;
+  height:500px;
+  object-fit: cover; /* מסדר את התמונה כך שתמלא את התיבה תוך שמירה על יחסי הממדים */
+  object-position: center; /* ממרכז את התמונה בתיבה */
 }

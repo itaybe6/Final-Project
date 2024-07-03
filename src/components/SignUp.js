@@ -1,32 +1,48 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Container, Box, TextField, Button, Typography } from '@mui/material';
-import { useNavigate } from 'react-router-dom'; // ffor move between pages
-//import '../Style/SignUp.css'
+import { useNavigate } from 'react-router-dom';
+
 const SignUp = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
+    profilePic: null,
   });
+  const [preview, setPreview] = useState(null);
 
-  const { name, email, password } = formData;
+  const { name, email, password, profilePic } = formData;
 
-  const onChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const onChange = (e) => {
+    if (e.target.name === 'profilePic') {
+      const file = e.target.files[0];
+      setFormData({ ...formData, profilePic: file });
+      setPreview(URL.createObjectURL(file));
+    } else {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    }
+  };
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    const formDataToSend = new FormData();
+    formDataToSend.append('name', name);
+    formDataToSend.append('email', email);
+    formDataToSend.append('password', password);
+    if (profilePic) {
+      formDataToSend.append('profilePic', profilePic);
+    }
+
     try {
       const config = {
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'multipart/form-data',
         },
       };
-      const body = JSON.stringify({ name, email, password });
-      const response = await axios.post('http://localhost:5000/users/signup', body, config);
-      console.log(response.data); // Handle the response from the server
+      const response = await axios.post('http://localhost:5000/users/signup', formDataToSend, config);
+      console.log(response.data);
       navigate('/');
     } catch (err) {
       console.error(err.response.data); // Handle errors
@@ -34,19 +50,14 @@ const SignUp = () => {
   };
 
   return (
-    <Container component="main" maxWidth="xs" sx={{ bgcolor: '#0a1823', p: 3, borderRadius: 2, boxShadow: 3, color: '#fff' }}>
+    <Container component="main" maxWidth="xs" sx={{ marginTop: '30px', bgcolor: '#708090', p: 3, borderRadius: 20, boxShadow: 3, color: '#fff' }}>
       <Box sx={{
         my: 8,
         mx: 4,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        bgcolor: '#0a1823',
-        p: 3,
-        borderRadius: 2,
-        boxShadow: 1,
-        '& .MuiTextField-root': { m: 1, width: '25ch' },
-        '& .MuiButton-root': { m: 1, width: '25ch' }
+        bgcolor: '#708090',
       }}>
         <Typography component="h1" variant="h5" gutterBottom>
           SignUp
@@ -57,9 +68,9 @@ const SignUp = () => {
             margin="normal"
             required
             fullWidth
-            id="fullName"
+            id="name"
             label="Full Name"
-            name="fullName"
+            name="name"
             autoComplete="fullName"
             autoFocus
             variant="filled"
@@ -84,6 +95,7 @@ const SignUp = () => {
                 borderColor: '#69d982',
               }
             }}
+            onChange={e => onChange(e)}
           />
           <TextField
             variant="outlined"
@@ -110,7 +122,48 @@ const SignUp = () => {
             value={password}
             onChange={e => onChange(e)}
           />
-
+          <Typography component="h6" variant="h6" gutterBottom>
+            Upload a Profile Picture
+          </Typography>
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <input
+              type="file"
+              name="profilePic"
+              accept="image/*"
+              onChange={e => onChange(e)}
+              style={{ display: 'none' }}
+              id="upload-button"
+            />
+            <label htmlFor="upload-button">
+              <Button
+                variant="contained"
+                component="span"
+                sx={{
+                  bgcolor: '#69d982',
+                  color: '#0a1823',
+                  '&:hover': {
+                    bgcolor: 'rgba(105, 217, 130, 0.8)',
+                  },
+                  borderRadius: 1,
+                }}
+              >
+                Choose File
+              </Button>
+            </label>
+            {preview && (
+              <Box
+                component="img"
+                src={preview}
+                alt="Profile Preview"
+                sx={{
+                  width: 80,
+                  height: 80,
+                  borderRadius: '50%',
+                  marginLeft: 2,
+                }}
+              />
+            )}
+          </Box>
           <Button
             type="submit"
             fullWidth
@@ -121,7 +174,7 @@ const SignUp = () => {
               bgcolor: '#69d982',
               color: '#0a1823',
               '&:hover': {
-                bgcolor: 'rgba(105, 217, 130, 0.8)'
+                bgcolor: 'rgba(105, 217, 130, 0.8)',
               },
               borderRadius: 1,
             }}

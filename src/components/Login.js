@@ -29,7 +29,7 @@ const Login = () => {
       const response = await axios.post('http://localhost:5000/users/login', body, config);
       console.log(response.data);
       setUser(response.data);
-      navigate('/'); // after the login succes move to home page
+      navigate('/BasicConcept'); // after the login succes move to home page
     } catch (err) {
       console.error(err.response.data); // Handle errors
     }
@@ -39,12 +39,17 @@ const Login = () => {
     <Container component="main" maxWidth="xs">
       <Box
         sx={{
+          borderRadius: "20px",
+          padding : "30px",
+          bgcolor: '#98FB98',
           marginTop: 8,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
         }}
       >
+
+
         <form onSubmit={e => onSubmit(e)}>
       
           <TextField

@@ -3,11 +3,12 @@ import { useUser } from './UserContext';
 
 function HomePage() {
   const { user } = useUser();
+  console.log(user)
   return (
     <div>
       
       
-      {user ? `Hello, ${user.name}` : 'Not logged in'}
+      {user ? `Hello, ${user.id}` : 'Not logged in'}
 
     </div>
   );
