@@ -3,6 +3,9 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import BasicConcept from './pagesComponents/BasicConcept';
 import Psychology from './pagesComponents/Psychology';
+import TechnologicalTools from './pagesComponents/TechnologicalTools';
+import Home from './pagesComponents/Home';
+
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import SignUp from './components/SignUp';
@@ -31,10 +34,13 @@ function App() {
           <Navbar />
           <div style={contentStyle}>
             <Routes>
+            <Route path="/Home" element={<Home />} />
               <Route path="/BasicConcept" element={<BasicConcept />} />
               <Route path="/Psychology" element={<Psychology />} />
+              <Route path="/TechnologicalTools" element={<TechnologicalTools />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/login" element={<Login />} />
+
               <Route path="/" element={<HomePage />} />
             </Routes>
           </div>

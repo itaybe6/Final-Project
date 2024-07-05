@@ -32,12 +32,12 @@ function Navbar() {
           <Stack direction="row" spacing={2} className="navbar">
             <a href="#" className="navbarLink">מסחר יומי</a>
             <a href="#" className="navbarLink">מסחר לונג</a>
-            <a href="#" className="navbarLink">כלים</a>
+            <a href="TechnologicalTools" className="navbarLink">כלים</a>
             <a href="Psychology" className="navbarLink">פסיכולוגיה</a>
             <a href="#" className="navbarLink">אלגוריתם</a>
             <a href="#" className="navbarLink">קהילה</a>
             <a href="BasicConcept" className="navbarLink">לומדת שוק ההון</a>
-            <a href="/" className="navbarLink">דף בית</a>
+            <a href="/Home" className="navbarLink">דף בית</a>
 
           </Stack>
         </Toolbar>
