@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const messageSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User', // התייחסות למשתמש
+    ref: 'User',
     required: true
   },
   timestamp: {
@@ -19,6 +19,10 @@ const messageSchema = new mongoose.Schema({
     type: Number,
     default: 0
   },
+  likedBy: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  }],
   replies: [{
     user: {
       type: mongoose.Schema.Types.ObjectId,

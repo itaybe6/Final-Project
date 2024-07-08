@@ -1,7 +1,7 @@
-const Message = require('../models/messages');
+const Message = require('../models/message');
 const User = require('../models/user');
 
-// יצירת הודעה חדשה
+// פונקציה ליצירת הודעה חדשה
 exports.createMessage = async (req, res) => {
   const { userId, content } = req.body;
 
@@ -20,6 +20,7 @@ exports.createMessage = async (req, res) => {
       content: content,
       timestamp: new Date(),
       likes: 0,
+      likedBy: [],
       replies: []
     });
 
@@ -30,14 +31,27 @@ exports.createMessage = async (req, res) => {
   }
 };
 
-// הוספת לייק להודעה
+// פונקציה להוספת לייק להודעה
 exports.likeMessage = async (req, res) => {
+  const { userId } = req.body;
+
+  if (!userId) {
+    return res.status(400).json({ message: 'User ID is required' });
+  }
+
   try {
     const message = await Message.findById(req.params.id);
     if (!message) {
       return res.status(404).json({ message: 'Message not found' });
     }
+
+    // בדיקת לייקים כפולים
+    if (message.likedBy.includes(userId)) {
+      return res.status(400).json({ message: 'User has already liked this message' });
+    }
+
     message.likes += 1;
+    message.likedBy.push(userId);
     await message.save();
     res.status(200).json(message);
   } catch (err) {
@@ -45,7 +59,7 @@ exports.likeMessage = async (req, res) => {
   }
 };
 
-// הוספת תגובה להודעה
+// פונקציה להוספת תגובה להודעה
 exports.replyToMessage = async (req, res) => {
   const { userId, content } = req.body;
 
@@ -73,6 +87,16 @@ exports.replyToMessage = async (req, res) => {
     message.replies.push(reply);
     await message.save();
     res.status(200).json(message);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+// פונקציה לקבלת כל ההודעות
+exports.getAllMessages = async (req, res) => {
+  try {
+    const messages = await Message.find().populate('user', 'name profilePic').populate('replies.user', 'name profilePic').populate('likedBy', 'name profilePic');
+    res.status(200).json(messages);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

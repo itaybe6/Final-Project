@@ -1,14 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const { createMessage, likeMessage, replyToMessage } = require('../controller/messages');
+const { createMessage, likeMessage, replyToMessage, getAllMessages } = require('../controller/messages');
 
 // יצירת הודעה חדשה
-router.post('/messages', createMessage);
+router.post('/', createMessage);
 
 // הוספת לייק להודעה
-router.post('/messages/:id/like', likeMessage);
+router.post('/:id/like', likeMessage);
 
 // הוספת תגובה להודעה
-router.post('/messages/:id/reply', replyToMessage);
+router.post('/:id/reply', replyToMessage);
+
+// קבלת כל ההודעות
+router.get('/', getAllMessages);
 
 module.exports = router;

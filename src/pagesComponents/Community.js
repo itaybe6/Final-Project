@@ -1,6 +1,6 @@
 import React from 'react';
 import ChatBox from '../components/ChatBox';
-
+import MessageList from '../components/MessageList ';
 
 const Community = () => {
     
@@ -8,6 +8,7 @@ const Community = () => {
         <div >
 
             <ChatBox />
+            <MessageList />
 
             
            

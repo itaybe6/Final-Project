@@ -37,24 +37,13 @@ function Navbar() {
             <a href="Community" className="navbarLink">קהילה</a>
             <a href="BasicConcept" className="navbarLink">לומדת שוק ההון</a>
             <a href="/" className="navbarLink">דף בית</a>
-            <a href="/Home" className="navbarLink">דף בית</a>
-
           </Stack>
 
           {user && (
             <Avatar 
               src={`http://localhost:5000${user.profilePic}`} 
               alt={user.name}
-              sx={{
-                marginLeft: 'auto',
-                width: '50px',
-                height: '50px',
-                '&:hover': {
-                  cursor: 'pointer',
-                  transform: 'scale(1.2)',
-                  transition: 'transform 0.2s ease-in-out',
-                },
-              }}
+              style={{ marginLeft: 'auto' }}
             />
           )}
         </Toolbar>
