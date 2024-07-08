@@ -4,7 +4,14 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import BasicConcept from './pagesComponents/BasicConcept';
 import Psychology from './pagesComponents/Psychology';
+<<<<<<< HEAD
 import Community from './pagesComponents/Community';
+=======
+import TechnologicalTools from './pagesComponents/TechnologicalTools';
+import Home from './pagesComponents/Home';
+
+
+>>>>>>> 0b4612db4fae07a552187156d78b56252e2985b4
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
@@ -33,11 +40,17 @@ function App() {
           <Navbar />
           <div style={contentStyle}>
             <Routes>
+            <Route path="/Home" element={<Home />} />
               <Route path="/BasicConcept" element={<BasicConcept />} />
               <Route path="/Psychology" element={<Psychology />} />
+<<<<<<< HEAD
               <Route path="/Community" element={<Community />} />
+=======
+              <Route path="/TechnologicalTools" element={<TechnologicalTools />} />
+>>>>>>> 0b4612db4fae07a552187156d78b56252e2985b4
               <Route path="/signup" element={<SignUp />} />
               <Route path="/login" element={<Login />} />
+
               <Route path="/" element={<HomePage />} />
             </Routes>
           </div>
