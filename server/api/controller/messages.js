@@ -1,4 +1,4 @@
-const Message = require('../models/message');
+const Message = require('../models/messages');
 const User = require('../models/user');
 
 // פונקציה ליצירת הודעה חדשה
@@ -35,25 +35,28 @@ exports.createMessage = async (req, res) => {
 exports.likeMessage = async (req, res) => {
   const { userId } = req.body;
 
+  console.log("Received like request from user:", userId);  // לוג לקבלת הבקשה
+
   if (!userId) {
     return res.status(400).json({ message: 'User ID is required' });
   }
 
   try {
-    const message = await Message.findById(req.params.id);
+    const message = await Message.findById(req.params.id).populate('likedBy', 'name profilePic');
     if (!message) {
       return res.status(404).json({ message: 'Message not found' });
     }
 
     // בדיקת לייקים כפולים
-    if (message.likedBy.includes(userId)) {
+    if (message.likedBy.some(user => user.equals(userId))) {
       return res.status(400).json({ message: 'User has already liked this message' });
     }
 
     message.likes += 1;
     message.likedBy.push(userId);
     await message.save();
-    res.status(200).json(message);
+    const updatedMessage = await Message.findById(req.params.id).populate('likedBy', 'name profilePic');
+    res.status(200).json(updatedMessage);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

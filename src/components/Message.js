@@ -1,21 +1,30 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Card, CardContent, Typography, Button, Box, Dialog, DialogTitle, DialogContent, Avatar, List, ListItem, ListItemAvatar, ListItemText } from '@mui/material';
+import { useUser } from './UserContext';
 
 const Message = ({ message, onLike }) => {
   const [open, setOpen] = useState(false);
+  const { user } = useUser();
 
   const handleLike = async () => {
+    if (!user) {
+      console.error("User is not logged in.");
+      return;
+    }
+
     try {
-      const response = await axios.post(`http://localhost:5000/messages/${message._id}/like`, { userId: message.user.id });
-      onLike(message._id, response.data.likes); // עדכון מספר הלייקים לאחר קבלת תגובת השרת
+      const response = await axios.post(`http://localhost:5000/messages/${message._id}/like`, { userId: user.id });
+      console.log("Liked by users (response):", response.data.likedBy); // לוג למשתמשים שעשו לייק מהתשובה מהשרת
+      onLike(message._id, response.data.likes, response.data.likedBy); // עדכון מספר הלייקים ורשימת המשתמשים לאחר קבלת תגובת השרת
     } catch (err) {
-      console.error(err);
+      console.error("Error sending like request:", err.response ? err.response.data : err);
     }
   };
 
   const handleClickOpen = () => {
     setOpen(true);
+    console.log("Liked by users:", message.likedBy);  // לוג למשתמשים שעשו לייק
   };
 
   const handleClose = () => {
