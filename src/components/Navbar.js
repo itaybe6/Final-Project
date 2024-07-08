@@ -36,12 +36,9 @@ function Navbar() {
             <a href="#" className="navbarLink">אלגוריתם</a>
             <a href="Community" className="navbarLink">קהילה</a>
             <a href="BasicConcept" className="navbarLink">לומדת שוק ההון</a>
-<<<<<<< HEAD
             <a href="/" className="navbarLink">דף בית</a>
-=======
             <a href="/Home" className="navbarLink">דף בית</a>
 
->>>>>>> 0b4612db4fae07a552187156d78b56252e2985b4
           </Stack>
 
           {user && (
