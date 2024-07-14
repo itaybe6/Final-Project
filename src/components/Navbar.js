@@ -30,7 +30,7 @@ function Navbar() {
 
           <Stack direction="row" spacing={2} className="navbar">
             <a href="#" className="navbarLink">מסחר יומי</a>
-            <a href="#" className="navbarLink">מסחר לונג</a>
+            <a href="LongTerm" className="navbarLink">מסחר לונג</a>
             <a href="TechnologicalTools" className="navbarLink">כלים</a>
             <a href="Psychology" className="navbarLink">פסיכולוגיה</a>
             <a href="#" className="navbarLink">אלגוריתם</a>

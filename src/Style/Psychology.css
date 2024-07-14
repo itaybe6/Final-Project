@@ -70,3 +70,10 @@
   object-fit: cover; /* מסדר את התמונה כך שתמלא את התיבה תוך שמירה על יחסי הממדים */
   object-position: center; /* ממרכז את התמונה בתיבה */
 }
+
+.transparent-background {
+  background-color: rgba(0, 0, 0, 0.329); /* צבע רקע שחור שקוף */
+  padding: 20px; /* ריווח פנימי */
+  border-radius: 50px; /* פינות מעוגלות */
+  margin: 20px 0; /* רווח מעל ומתחת */
+}
