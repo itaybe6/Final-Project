@@ -15,6 +15,10 @@ const messageSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  category: {
+    type: String,
+    required: true
+  },
   likes: {
     type: Number,
     default: 0

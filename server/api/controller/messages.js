@@ -1,12 +1,12 @@
 const Message = require('../models/messages');
 const User = require('../models/user');
 
-// פונקציה ליצירת הודעה חדשה
+// יצירת הודעה חדשה
 exports.createMessage = async (req, res) => {
-  const { userId, content } = req.body;
+  const { userId, content, category } = req.body;
 
-  if (!userId || !content) {
-    return res.status(400).json({ message: 'User ID and content are required' });
+  if (!userId || !content || !category) {
+    return res.status(400).json({ message: 'User ID, content and category are required' });
   }
 
   try {
@@ -18,6 +18,7 @@ exports.createMessage = async (req, res) => {
     const newMessage = new Message({
       user: userId,
       content: content,
+      category: category,
       timestamp: new Date(),
       likes: 0,
       likedBy: [],
@@ -31,38 +32,34 @@ exports.createMessage = async (req, res) => {
   }
 };
 
-// פונקציה להוספת לייק להודעה
+// הוספת לייק להודעה
 exports.likeMessage = async (req, res) => {
   const { userId } = req.body;
-
-  console.log("Received like request from user:", userId);  // לוג לקבלת הבקשה
 
   if (!userId) {
     return res.status(400).json({ message: 'User ID is required' });
   }
 
   try {
-    const message = await Message.findById(req.params.id).populate('likedBy', 'name profilePic');
+    const message = await Message.findById(req.params.id);
     if (!message) {
       return res.status(404).json({ message: 'Message not found' });
     }
 
-    // בדיקת לייקים כפולים
-    if (message.likedBy.some(user => user.equals(userId))) {
+    if (message.likedBy.includes(userId)) {
       return res.status(400).json({ message: 'User has already liked this message' });
     }
 
     message.likes += 1;
     message.likedBy.push(userId);
     await message.save();
-    const updatedMessage = await Message.findById(req.params.id).populate('likedBy', 'name profilePic');
-    res.status(200).json(updatedMessage);
+    res.status(200).json(message);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 };
 
-// פונקציה להוספת תגובה להודעה
+// הוספת תגובה להודעה
 exports.replyToMessage = async (req, res) => {
   const { userId, content } = req.body;
 
@@ -95,10 +92,20 @@ exports.replyToMessage = async (req, res) => {
   }
 };
 
-// פונקציה לקבלת כל ההודעות
+// קבלת כל ההודעות לפי קטגוריה
+exports.getMessagesByCategory = async (req, res) => {
+  try {
+    const messages = await Message.find({ category: req.params.category }).populate('user', 'name');
+    res.status(200).json(messages);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+// קבלת כל ההודעות
 exports.getAllMessages = async (req, res) => {
   try {
-    const messages = await Message.find().populate('user', 'name profilePic').populate('replies.user', 'name profilePic').populate('likedBy', 'name profilePic');
+    const messages = await Message.find().populate('user', 'name');
     res.status(200).json(messages);
   } catch (err) {
     res.status(500).json({ error: err.message });

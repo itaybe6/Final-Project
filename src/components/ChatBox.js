@@ -1,47 +1,55 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { useUser } from './UserContext';
+import { TextField, Button, Box, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
 
 const ChatBox = () => {
   const [content, setContent] = useState('');
+  const [category, setCategory] = useState('Day Trading');
   const { user } = useUser();
 
-  useEffect(() => {
-    console.log("Loaded user from context:", user);
-  }, [user]);
-
   const sendMessage = async () => {
-    if (!user) {
-      alert('You must be logged in to send a message.');
-      return;
-    }
-
-
-    if (!content) return;
+    if (!content || !category) return;
     try {
-      
       const response = await axios.post('http://localhost:5000/messages', {
-        userId: user.id,  // עדכון ל-userId
+        userId: user.id,
         content,
+        category
       });
-
-      console.log("Response from server:", response.data);
-
       setContent('');
     } catch (err) {
-      console.error("Error sending message:", err.response ? err.response.data : err);
+      console.error(err);
     }
   };
 
   return (
-    <div>
-      <textarea
+    <Box sx={{ padding: 2, display: 'flex', flexDirection: 'column', gap: 2 }}>
+      <TextField
+        label="Write your message..."
+        multiline
+        rows={4}
+        variant="outlined"
         value={content}
         onChange={(e) => setContent(e.target.value)}
-        placeholder="Write your message..."
-      ></textarea>
-      <button onClick={sendMessage}>Send</button>
-    </div>
+      />
+      <FormControl variant="outlined" sx={{ minWidth: 120 }}>
+        <InputLabel>Category</InputLabel>
+        <Select
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          label="Category"
+        >
+          <MenuItem value="Day Trading">Day Trading</MenuItem>
+          <MenuItem value="Long-Term Investing">Long-Term Investing</MenuItem>
+          <MenuItem value="Beginners in the Stock Market">Beginners in the Stock Market</MenuItem>
+          <MenuItem value="Trading Psychology">Trading Psychology</MenuItem>
+          <MenuItem value="Trading Tools and Technologies">Trading Tools and Technologies</MenuItem>
+        </Select>
+      </FormControl>
+      <Button variant="contained" color="primary" onClick={sendMessage}>
+        Send
+      </Button>
+    </Box>
   );
 };
 

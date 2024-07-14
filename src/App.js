@@ -41,7 +41,6 @@ function App() {
               <Route path="/BasicConcept" element={<BasicConcept />} />
               <Route path="/Psychology" element={<Psychology />} />
               <Route path="/Community" element={<Community />} />
-=======
               <Route path="/TechnologicalTools" element={<TechnologicalTools />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/login" element={<Login />} />
