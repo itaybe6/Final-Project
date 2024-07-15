@@ -1,0 +1,20 @@
+.tradingview-widget-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 600px; /* קובע את גובה הקונטיינר כדי למרכז את התוכן אנכית */
+}
+
+.tradingview-widget-container__widget {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px; /* רוחב הגרף */
+  height: 600px; /* גובה הגרף */
+}
+
+.tradingview-widget-container__widget iframe {
+  width: 600px !important;
+  height: 400px !important;
+}

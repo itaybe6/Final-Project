@@ -17,6 +17,7 @@ import Login from './components/Login';
 import HomePage from './components/HomePage';
 
 import { UserProvider } from './components/UserContext'; // to pass all the details of the user
+import DayTrade from './pagesComponents/DayTrade';
 
 function App() {
   const backgroundStyle = {
@@ -47,6 +48,8 @@ function App() {
               <Route path="/signup" element={<SignUp />} />
               <Route path="/login" element={<Login />} />
               <Route path="/LongTerm" element={<LongTerm />} />
+              <Route path="/DayTrade" element={<DayTrade />} />
+
 
 
               <Route path="/" element={<HomePage />} />

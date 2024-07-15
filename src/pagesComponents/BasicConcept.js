@@ -16,7 +16,6 @@ import newyork from '../img/newyork.jpg'
 import Advantages from '../components/Advantages';
 import RowTopics from '../components/RowTopics';
 import Introduction from '../components/Introduction';
-import '../Style/Psychology.css'
 
 
 const BasicConcept = () => {

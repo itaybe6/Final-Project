@@ -9,7 +9,11 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json()); // for parsing application/json
-
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 // Connect to MongoDB
 mongoose.connect('mongodb+srv://itay:Itay6236045@cluster0.avnc3zu.mongodb.net/final_project?retryWrites=true&w=majority&appName=Cluster0', { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))

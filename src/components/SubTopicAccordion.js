@@ -33,7 +33,7 @@ const SubTopicAccordion = ({ title, description, imageUrl }) => {
 const styles = {
   accordion: {
     borderRadius: '20px',
-    backgroundColor: 'white',
+    backgroundColor: 'rgba(255, 255, 255, 0.308)',
     transition: 'transform 0.3s ease', // Smooth transition for the transform
     direction: 'rtl', // Sets text direction to right-to-left
     border: '1px solid black',

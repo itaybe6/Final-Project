@@ -1,10 +1,8 @@
 import React from 'react';
 import { Grid } from '@mui/material';
 import SubTopicAccordion from './SubTopicAccordion';
-import aftermarket from '../img/aftermarket.jpg'
-import  askbid from '../img/askbid.jpg'
-import premarket from '../img/premarket.jpg'
-import stock from '../img/stock.jpg'
+
+import '../Style/Psychology.css';
 
 
 const styles = {
@@ -26,6 +24,7 @@ const RowTopics = ({subTopics}) => {
                 </Grid>
             ))}
         </Grid>
+       
     );
 };
 
