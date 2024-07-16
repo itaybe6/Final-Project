@@ -8,7 +8,7 @@ import Community from './pagesComponents/Community';
 import TechnologicalTools from './pagesComponents/TechnologicalTools';
 import Home from './pagesComponents/Home';
 import LongTerm from './pagesComponents/LongTerm';
-
+import StockData from './pagesComponents/StockData';
 
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -49,7 +49,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/LongTerm" element={<LongTerm />} />
               <Route path="/DayTrade" element={<DayTrade />} />
-
+              <Route path="/StockData" element={<StockData />} />
 
 
               <Route path="/" element={<HomePage />} />

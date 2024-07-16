@@ -2,6 +2,7 @@ import React from 'react';
 import { AppBar, Toolbar, Typography, Stack, Avatar } from '@mui/material';
 import '../Style/Navbar.css';
 import { useUser } from './UserContext'; // ייבוא הפונקציה לשימוש ב-UserContext
+ 
 
 function Navbar() {
   const { user } = useUser(); // שימוש ב-Context לקבלת נתוני המשתמש
@@ -33,7 +34,7 @@ function Navbar() {
             <a href="LongTerm" className="navbarLink">מסחר לונג</a>
             <a href="TechnologicalTools" className="navbarLink">כלים</a>
             <a href="Psychology" className="navbarLink">פסיכולוגיה</a>
-            <a href="#" className="navbarLink">אלגוריתם</a>
+            <a href="StockData" className="navbarLink">אלגוריתם</a>
             <a href="Community" className="navbarLink">קהילה</a>
             <a href="BasicConcept" className="navbarLink">לומדת שוק ההון</a>
             <a href="/" className="navbarLink">דף בית</a>
