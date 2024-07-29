@@ -1,4 +1,3 @@
-import background from './img/background.jpg'
 import one from './img/1.jpg'
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -9,6 +8,7 @@ import TechnologicalTools from './pagesComponents/TechnologicalTools';
 import Home from './pagesComponents/Home';
 import LongTerm from './pagesComponents/LongTerm';
 import StockData from './pagesComponents/StockData';
+import MessageList from './components/MessageList ';
 
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -57,7 +57,7 @@ function App() {
           </div>
 
           <Footer />
-          
+          <MessageList />
         </UserProvider>
       </div>
     </Router>

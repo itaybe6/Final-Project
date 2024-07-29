@@ -19,13 +19,21 @@ const messageSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  name: {
+    type: String,
+    required: true
+  },
   likes: {
     type: Number,
     default: 0
   },
   likedBy: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+    },
+    name: String,
+    profilePic: String // שדה חדש לתמונת הפרופיל
   }],
   replies: [{
     user: {
@@ -41,5 +49,4 @@ const messageSchema = new mongoose.Schema({
 });
 
 const Message = mongoose.model('Message', messageSchema);
-
 module.exports = Message;

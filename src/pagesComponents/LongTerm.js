@@ -3,6 +3,8 @@ import Introduction from '../components/Introduction';
 import '../Style/Psychology.css'
 import RowTopics from '../components/RowTopics';
 import FundamentalAnalysisCarousel from '../components/FundamentalAnalysisCarousel';
+import MessageList from '../components/MessageList ';
+
 
 import doublebottom from '../img/doublebottom.jpg'
 import BoolPennant from '../img/BoolPennant.jpg'
@@ -71,7 +73,9 @@ const LongTerm = () => {
 
             <Introduction title = {title3} text ={text3} />
             <FundamentalAnalysisCarousel />
-
+            
+            
+         
         </div>
     );
 };

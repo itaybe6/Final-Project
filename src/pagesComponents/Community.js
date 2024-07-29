@@ -8,7 +8,7 @@ const Community = () => {
         <div >
 
             <ChatBox />
-            <MessageList />
+            <MessageList category = "Long-Term-Investing"/>
 
             
            

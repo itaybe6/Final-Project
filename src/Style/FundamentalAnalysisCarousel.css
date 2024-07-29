@@ -25,7 +25,7 @@
 
 .carousel-image {
     width: 100%;
-    height: auto;
+    height: 400px;
     border-radius: 15px;
 }
 
@@ -40,8 +40,3 @@
   color: white;
 }
 
-.carousel-image {
-  max-width: 100%;
-  height: auto;
-  margin-top: 20px;
-}
