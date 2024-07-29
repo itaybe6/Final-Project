@@ -40,7 +40,6 @@ function App() {
           <Navbar />
           <div style={contentStyle}>
             <Routes>
-            <Route path="/Home" element={<Home />} />
               <Route path="/BasicConcept" element={<BasicConcept />} />
               <Route path="/Psychology" element={<Psychology />} />
               <Route path="/Community" element={<Community />} />

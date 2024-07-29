@@ -2,6 +2,8 @@ import React from 'react';
 import { useUser } from './UserContext';
 import TradingViewWidget from './TradingViewWidget';
 import StockCarousel from './StockCarousel ';
+import TipsWithAnimatedIcons from './TipsWithAnimatedIcons';
+
 
 function HomePage() {
   const { user } = useUser();
@@ -13,6 +15,7 @@ function HomePage() {
       {user ? `Hello, ${user.id}` : 'Not logged in'}
       <StockCarousel />
       <TradingViewWidget />
+      <TipsWithAnimatedIcons />
 
     </div>
   );
