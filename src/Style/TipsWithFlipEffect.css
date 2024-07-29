@@ -1,8 +1,39 @@
+.background {
+  padding: 20px;
+  padding-bottom: 50px;
+  border-radius: 100px;
+  background-color: rgba(0, 0, 0, 0.907); /* Semi-transparent black background */
+
+}
+
+.main-title {
+font-size: 1.3rem; /* Increase the font size slightly */
+  background-color: #0c69ff;  
+  color: white;
+  font-size: 2rem; /* Adjust the size as needed */
+  margin-bottom: 20px; /* Space between the main title and the tips */
+  padding: 10px 20px; /* Padding to ensure some spacing inside the background */
+  border-radius: 10px; /* Rounded corners for the title background */
+  display: inline-block; /* Only apply background to the text width */
+}
+
+.tip-title {
+  color: white;
+  font-size: 1.3rem; /* Increase the font size slightly */
+ 
+  padding: 5px; /* Optional padding for better spacing */
+}
+
+.description-text {
+  font-size: 1.1rem !important; /* Force the font size to apply */
+  color: white; /* Ensure the text color is readable */
+}
+
 .flip-card {
   background-color: transparent;
   width: 300px;
   height: 300px;
-  perspective: 1000px; /* מוסיף עומק לאפקט היפוך */
+  perspective: 1000px; /* Adds depth to the flip effect */
   margin: 20px;
 }
 
@@ -29,46 +60,18 @@
   border-radius: 50px;
 }
 
-
-
 .flip-card-back {
-  background-color: #000000; /* צבע רקע לכרטיס הטיפ */
+  background-color: #000000; /* Background color for the back side */
   color: white;
   transform: rotateY(180deg);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 10px;
-  font-weight: 50px;
 }
 
 .card-image {
   width: 100%;
   height: 100%;
   border-radius: 50px;
-}
-.background {
-  background-color: rgba(0, 0, 0, 0.718); /* Semi-transparent black background */
-  padding: 20px;
-  padding-bottom: 50px;
-  border-radius: 100px;
-
-}
-.tip-title {
-  color: white;
-  font-size: 1.3rem; /* Increase the font size slightly */
-
-
-}
-
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-
-.flip-card .flip-card-inner .flip-card-back .description-text {
-  font-size: 1.1rem !important; /* Force the font size to apply */
-  color: white; /* Ensure the text color is readable */
 }
