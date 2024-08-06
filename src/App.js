@@ -3,13 +3,11 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import BasicConcept from './pagesComponents/BasicConcept';
 import Psychology from './pagesComponents/Psychology';
-import Community from './pagesComponents/Community';
 import TechnologicalTools from './pagesComponents/TechnologicalTools';
-import Home from './pagesComponents/Home';
 import LongTerm from './pagesComponents/LongTerm';
 import StockData from './pagesComponents/StockData';
 import MessageList from './components/MessageList ';
-
+import TipsWithFlipEffect from './components/TipsWithAnimatedIcons';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import SignUp from './components/SignUp';
@@ -42,7 +40,6 @@ function App() {
             <Routes>
               <Route path="/BasicConcept" element={<BasicConcept />} />
               <Route path="/Psychology" element={<Psychology />} />
-              <Route path="/Community" element={<Community />} />
               <Route path="/TechnologicalTools" element={<TechnologicalTools />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/login" element={<Login />} />

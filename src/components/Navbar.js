@@ -35,7 +35,6 @@ function Navbar() {
             <a href="TechnologicalTools" className="navbarLink">כלים</a>
             <a href="Psychology" className="navbarLink">פסיכולוגיה</a>
             <a href="StockData" className="navbarLink">אלגוריתם</a>
-            <a href="Community" className="navbarLink">קהילה</a>
             <a href="BasicConcept" className="navbarLink">לומדת שוק ההון</a>
             <a href="/" className="navbarLink">דף בית</a>
           </Stack>
