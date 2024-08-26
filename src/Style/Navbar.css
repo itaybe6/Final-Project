@@ -1,5 +1,4 @@
 /* Style for Navbar links */
-/* Apply this class to both the text links and the button with icons */
 .navbarLink {
   color: rgb(245, 244, 244); /* Text color */
   font-size: 20px;
@@ -29,5 +28,17 @@
   border-bottom: 2px solid #000; /* Adds a bottom border for a sharper look */
 }
 
+/* Center the Stack with links */
+.navbar {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center; /* Centers the links horizontally */
+  align-items: center; /* Centers the links vertically */
+}
 
-                    
+.avatar-container {
+  position: absolute;
+  right: 20px; /* Position avatar to the right */
+  top: 50%; /* Center vertically within the toolbar */
+  transform: translateY(-50%); /* Adjust for perfect centering */
+}

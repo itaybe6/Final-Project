@@ -1,0 +1,34 @@
+.ticker-container {
+    width: 100%;
+    background-color: #1e1e1e; /* צבע רקע כהה */
+    padding: 10px 0;
+    color: white;
+    position: fixed; /* כדי להישאר בחלק העליון של הדף */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* כדי לוודא שהוא מעל כל תוכן אחר */
+    border-bottom: 1px solid #333; /* גבול תחתון עדין */
+    overflow: hidden; /* הסתרה של התוכן שנמצא מחוץ לאזור התצוגה */
+  }
+  
+  .ticker-items {
+    display: flex;
+    align-items: center;
+    white-space: nowrap; /* כדי למנוע שבירת שורות */
+  }
+  
+  .ticker-item {
+    margin-right: 50px; /* רווח בין פריטי הסרט */
+    display: flex;
+    align-items: center;
+  }
+  
+  .ticker-symbol {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  
+  .ticker-price {
+    color: #4caf50; /* צבע ירוק למחיר */
+  }
+  

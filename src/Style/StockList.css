@@ -1,0 +1,61 @@
+.stocks-container {
+    background-color: #1a1a1a; /* רקע כהה עם גוון מודרני */
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    max-width: 900px;
+    margin: 40px auto;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .stocks-container:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  }
+  
+  .stock-card {
+    background: linear-gradient(145deg, #232323, #1b1b1b);
+    border-radius: 12px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(60, 60, 60, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .stock-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.3), -10px -10px 25px rgba(60, 60, 60, 0.1);
+  }
+  
+  .stock-header {
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .up-icon, .down-icon {
+    color: #4caf50; /* צבע אייקון לעלייה */
+    transition: color 0.3s;
+  }
+  
+  .down-icon {
+    color: #ff5722; /* צבע אייקון לירידה */
+  }
+  
+  .stock-card:hover .up-icon {
+    color: #81c784; /* צבע ירוק בהיר יותר בהובר */
+  }
+  
+  .stock-card:hover .down-icon {
+    color: #ff8a65; /* צבע אדום בהיר יותר בהובר */
+  }
+  
+  .strong-buy {
+    border-left: 5px solid #4caf50; /* גבול ירוק למניות קנייה חזקה */
+  }
+  
+  .buy {
+    border-left: 5px solid #ffeb3b; /* גבול צהוב למניות קנייה */
+  }
+  

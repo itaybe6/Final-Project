@@ -9,18 +9,7 @@ function Navbar() {
 
   return (
     <div>
-      <AppBar position="static" style={{ backgroundColor: 'white' }}>
-        <Toolbar>
-          <Typography 
-            variant="h6" 
-            color="black" 
-            align="center" 
-            style={{ fontWeight: 'bold', fontSize: '2.2rem', width: '100%' }}
-          >
-            Stock4Life
-          </Typography>
-        </Toolbar>
-      </AppBar>
+    
 
       <AppBar position="static" style={{ backgroundColor: 'black', color : 'white'}}>
         <Toolbar style={{ justifyContent: 'space-between' }}>

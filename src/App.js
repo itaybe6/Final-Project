@@ -5,10 +5,8 @@ import BasicConcept from './pagesComponents/BasicConcept';
 import Psychology from './pagesComponents/Psychology';
 import TechnologicalTools from './pagesComponents/TechnologicalTools';
 import LongTerm from './pagesComponents/LongTerm';
-import StockData from './pagesComponents/StockData';
 import MessageList from './components/MessageList ';
-import TipsWithFlipEffect from './components/TipsWithAnimatedIcons';
-
+import StocksList from './pagesComponents/StockList';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
@@ -16,7 +14,7 @@ import HomePage from './components/HomePage';
 
 import { UserProvider } from './components/UserContext'; // to pass all the details of the user
 import DayTrade from './pagesComponents/DayTrade';
-
+import StockTicker from './components/StockTicker';
 function App() {
   const backgroundStyle = {
     display: 'flex',         // Makes the container a flexbox container
@@ -25,6 +23,7 @@ function App() {
     backgroundImage: `url(${one})`, // Sets the background image using the imported file
     backgroundSize: 'cover', // Ensures the background covers the entire container
     backgroundRepeat: 'no-repeat', // Prevents the background from repeating
+    marginTop: '37px'
   };
 
   const contentStyle = {
@@ -35,8 +34,9 @@ function App() {
     <Router>
       <div style={backgroundStyle}>
         <UserProvider >
-          <Navbar />
+          <StockTicker/>
           <div style={contentStyle}>
+          <Navbar />
             <Routes>
               <Route path="/BasicConcept" element={<BasicConcept />} />
               <Route path="/Psychology" element={<Psychology />} />
@@ -45,7 +45,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/LongTerm" element={<LongTerm />} />
               <Route path="/DayTrade" element={<DayTrade />} />
-              <Route path="/StockData" element={<StockData />} />
+              <Route path="/StockData" element={<StocksList />} />
 
 
               <Route path="/" element={<HomePage />} />

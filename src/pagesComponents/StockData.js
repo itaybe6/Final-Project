@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import '../Style/StockData.css'; 
 const apiKey = 'QWGKGSUY5S4KFPRN';
 
 const StockData = () => {
@@ -9,37 +9,46 @@ const StockData = () => {
   const [error, setError] = useState(null);
 
   const getStocksList = async () => {
-    return [
-      "OTLK", "HGEN", "PTN", "ACST", "ETON",
-      "ALDX", "ZOM", "NNVC", "TXMD", "SNGX", "XERS", "PSTI", "REPH", "SNCA", "KMPH",
-      "PULM", "SMMT", "CTXR", "SCYX", "APD", "APH", "ARE", "ATO", "AVB", "AVY"
-    ];
+    return ["MSFT", "AAPL", "NVDA", "AMZN", "GOOGL", 
+            "META", "GOOG", "BRKB", "LLY", "AVGO",
+            "JPM", "TSLA", "XOM", "UNH", "V",
+            "PG", "JNJ", "COST", "MA", "HD",
+            "PFE", "TMO", "MRK", "ABBV", "PEP",
+            "CVX", "ACN", "NFLX", "ABT", "CMCSA"];
   };
 
   useEffect(() => {
     const fetchStockData = async (symbol) => {
       try {
+        console.log(`Fetching data for ${symbol}...`);
         const apiUrl = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=${apiKey}`;
-        const response = await axios.get(apiUrl);
+        const response = await axios.get(apiUrl, { timeout: 10000 });
         const timeSeries = response.data['Time Series (Daily)'];
 
         if (timeSeries) {
           const formattedData = Object.keys(timeSeries).map(date => ({
             date,
             close: parseFloat(timeSeries[date]['4. close']),
-            volume: parseInt(timeSeries[date]['5. volume'])
           })).reverse();
 
           const rsi = calculateRSI(formattedData);
-          const meetsCriteria = rsi < 30;
+          const trend = calculateTrend(formattedData);
+          const macdSignal = await calculateMACD(symbol);
+          const criteriaCount = [rsi < 30, trend, macdSignal].filter(Boolean).length;
 
-          return { symbol, rsi, meetsCriteria, data: formattedData };
+          if (!selectedStocks.some(s => s.symbol === symbol)) {
+            setSelectedStocks(prevStocks => [
+              ...prevStocks,
+              { symbol, criteriaCount, latestClose: formattedData[0]?.close }
+            ]);
+          }
+
+          console.log(`Data for ${symbol} processed successfully.`);
         } else {
-          return { symbol, rsi: null, meetsCriteria: false, data: [] };
+          console.log(`No data for ${symbol}`);
         }
       } catch (error) {
         console.error(`Error fetching data for ${symbol}:`, error);
-        return { symbol, rsi: null, meetsCriteria: false, data: [] };
       }
     };
 
@@ -48,8 +57,7 @@ const StockData = () => {
       setError(null);
       try {
         const stocksList = await getStocksList();
-        const results = await Promise.all(stocksList.map(symbol => fetchStockData(symbol)));
-        setSelectedStocks(results.filter(stock => stock.meetsCriteria));
+        await Promise.all(stocksList.map(symbol => fetchStockData(symbol)));
       } catch (error) {
         setError(error);
       } finally {
@@ -58,7 +66,7 @@ const StockData = () => {
     };
 
     fetchData();
-  }, []);
+  }, [selectedStocks]);
 
   const calculateRSI = (data, period = 14) => {
     let gains = 0, losses = 0;
@@ -76,6 +84,40 @@ const StockData = () => {
     return 100 - (100 / (1 + rs));
   };
 
+  const calculateTrend = (data) => {
+    const daysToCheck = 40; // כ-2 חודשים (בערך 40 ימי מסחר)
+    if (data.length < daysToCheck) return false;
+
+    for (let i = 0; i < daysToCheck - 14; i++) {
+      const currentPrice = data[i].close;
+      const priceTwoWeeksAgo = data[i + 14].close;
+      if (currentPrice <= priceTwoWeeksAgo) {
+        return false;
+      }
+    }
+    return true;
+  };
+
+  const calculateMACD = async (symbol) => {
+    try {
+      const apiUrl = `https://www.alphavantage.co/query?function=MACD&symbol=${symbol}&apikey=${apiKey}`;
+      const response = await axios.get(apiUrl, { timeout: 10000 });
+      const macdData = response.data['Technical Analysis: MACD'];
+
+      if (macdData) {
+        const latestDate = Object.keys(macdData)[0];
+        const macd = parseFloat(macdData[latestDate]['MACD']);
+        const signal = parseFloat(macdData[latestDate]['MACD_Signal']);
+        return macd > signal;
+      } else {
+        return false;
+      }
+    } catch (error) {
+      console.error(`Error fetching MACD data for ${symbol}:`, error);
+      return false;
+    }
+  };
+
   return (
     <div className="stock-scanner-container">
       <h1>Stock Scanner</h1>
@@ -83,16 +125,18 @@ const StockData = () => {
         <div>Loading...</div>
       ) : error ? (
         <div>Error: {error.message}</div>
-      ) : selectedStocks.length === 0 ? (
-        <div>No stocks meet the criteria.</div>
       ) : (
-        <ul>
-          {selectedStocks.map(stock => (
-            <li key={stock.symbol}>
-              {stock.symbol} - Latest Close: ${stock.data[0]?.close || 'No Data'} - RSI: {stock.rsi.toFixed(2)}
-            </li>
-          ))}
-        </ul>
+        <>
+          <h2>Recommended Stocks for Purchase</h2>
+          <div className="recommended-stocks">
+            {selectedStocks.filter(stock => stock.criteriaCount >= 2).map(stock => (
+              <div key={stock.symbol} className="stock-card">
+                <h3>{stock.symbol}</h3>
+                <p>Latest Close: ${stock.latestClose || 'No Data'}</p>
+              </div>
+            ))}
+          </div>
+        </>
       )}
     </div>
   );
