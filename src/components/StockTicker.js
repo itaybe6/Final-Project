@@ -34,7 +34,6 @@ const StockTicker = () => {
           };
         });
 
-        console.log(prices); // בדיקה של הנתונים בקונסול
         setStockPrices(prices);
       } catch (error) {
         console.error('Error fetching stock prices:', error);
