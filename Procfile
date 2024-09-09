@@ -1,1 +1,1 @@
-web: npm run build && node server/server.js
+web: node --max_old_space_size=256 server/server.js
