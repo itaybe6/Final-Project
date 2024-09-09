@@ -14,8 +14,10 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
+
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://itay:Itay6236045@cluster0.avnc3zu.mongodb.net/final_project?retryWrites=true&w=majority&appName=Cluster0', { useNewUrlParser: true, useUnifiedTopology: true })
+const mongoUri = process.env.MONGO_URI || 'mongodb+srv://itay:Itay6236045@cluster0.avnc3zu.mongodb.net/final_project?retryWrites=true&w=majority&appName=Cluster0';
+mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('Could not connect to MongoDB:', err));
 
@@ -27,6 +29,15 @@ if (!fs.existsSync(uploadDir)) {
 
 // הגדרת נתיב סטטי לתיקיית העלאות
 app.use('/uploads', express.static('uploads'));
+
+// הגשת הקבצים הסטטיים שנבנו עבור צד הלקוח
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../build')));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../build', 'index.html'));
+  });
+}
 
 // ניתוב ל-usersRoutes
 const usersRoutes = require('./api/routes/users');
