@@ -14,7 +14,6 @@ import HomePage from './components/HomePage';
 
 import { UserProvider } from './components/UserContext'; // to pass all the details of the user
 import DayTrade from './pagesComponents/DayTrade';
-import StockTicker from './components/StockTicker';
 function App() {
   const backgroundStyle = {
     display: 'flex',         // Makes the container a flexbox container
@@ -34,7 +33,6 @@ function App() {
     <Router>
       <div style={backgroundStyle}>
         <UserProvider >
-          <StockTicker/>
           <div style={contentStyle}>
           <Navbar />
             <Routes>
